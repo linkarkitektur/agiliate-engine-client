@@ -6,7 +6,7 @@
       <div>{{ value }}</div>
     </div>
     <h1 class="text-3xl font-bold leading-tight tracking-tight py-3 font-mono">Room details</h1>
-    <table v-if="result.spaces" class="w-full min-w-full divide-y divide-gray-300 font-mono">
+    <table v-if="result.spaces" class="w-full min-w-full divide-y divide-gray-300 font-mono capitalize">
       <thead>
         <tr class="divide-x">
           <th scope="col">Space</th>
@@ -24,14 +24,14 @@
           </tr>
           <template v-for="value2 in value.spaces">
             <tr class="divide-x">
-              <td :rowspan="rowSpan(value2.spaces, 0)">{{ value2.name }}</td>
+              <td :rowspan="rowSpan(value2.spaces, 0)">{{ value2.name.split('–')[0] }}</td>
               <template v-if="!value2.spaces || value2.spaces === 0">
                 <td colspan="2" class="text-right">{{ Math.ceil(value2.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }}</td>
               </template>
             </tr>
             <template v-for="value3 in value2.spaces">
               <tr class="divide-x">
-                <td>{{ value3.name }}</td>
+                <td>{{ value3.name.split('–')[0]  }}</td>
                 <td class="text-right">{{ Math.ceil(value3.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }}</td>
               </tr>
             </template>
