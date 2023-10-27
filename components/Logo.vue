@@ -138,9 +138,9 @@
   </svg>
 </template>
 
-<script setup langt="ts">
+<script setup lang="ts">
   const colorMode = useColorMode()
-  const color = computed({
+  const color: String = computed({
     get () {
       return colorMode.value === 'dark' ? '#FFFFFF' : '#000000'
     }

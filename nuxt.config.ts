@@ -5,5 +5,8 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/agiliate-engine-client/',
     buildAssetsDir: 'assets'
-  }
+  },
+  typescript: {
+    strict: true,
+  },
 })
