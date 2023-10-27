@@ -15,11 +15,11 @@
     "gh-pages": "^6.0.0",
     "nuxt": "^3.8.0",
     "vue": "^3.3.7",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "@types/lodash": "^4.14.200"
   },
   "dependencies": {
     "@nuxt/ui": "^2.9.0",
-    "@types/lodash": "^4.14.200",
     "lodash": "^4.17.21"
   }
 }
