@@ -15,8 +15,9 @@
 </template>
 
 <script lang="ts" setup>
+  import debounce from 'lodash/debounce'
   const emit = defineEmits(['updatedInput'])
-  const input = {
+  let input = {
     variables: {
       "specialAreaOffice": 80,
       "specialAreaShared": 0,
@@ -49,8 +50,8 @@
       "accessToExercise": true,
     }
   }
-  const updated = async () => {
+  const updated = debounce(() => {
     emit("updatedInput", input)
-  }
+  }, 500)
   emit("updatedInput", input)
 </script>
