@@ -1,0 +1,1 @@
+.result-table-dark tr:nth-child(2n){background:rgb(var(--color-gray-900))}.result-table-light tr:nth-child(2n){background:#ccc}
