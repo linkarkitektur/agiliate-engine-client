@@ -1,6 +1,6 @@
 <template>
   <ClientOnly>
-    <header :class="{ 'bg-gray-900': colorMode.value === 'dark', 'bg-gray-300': colorMode.value === 'light' }">
+    <header class="header-background">
       <nav class="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
           <a href="#" class="-m-1.5 p-1.5">
@@ -27,3 +27,12 @@
     return colorMode.value === 'dark' ? 'github-mark-white.png' : 'github-mark.png'
   })
 </script>
+
+<style>
+  .dark .header-background {
+    background: rgb(var(--color-gray-900))
+  }
+  .header-background {
+    background: rgb(var(--color-gray-300))
+  }
+</style>
