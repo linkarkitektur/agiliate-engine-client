@@ -20,7 +20,7 @@
         input.variables[key] = Number(value)
       }
     }
-    const r = await $fetch("http://localhost:1337/calculate", {
+    const r = await $fetch("https://agiliate.nodalit.com/engine/calculate", {
       method: "POST",
       body: input,
       parseResponse: JSON.parse
