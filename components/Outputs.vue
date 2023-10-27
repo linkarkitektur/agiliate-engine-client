@@ -1,10 +1,12 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold leading-tight tracking-tight py-3 font-mono">Output</h1>
-    <div v-for="(value, key) in result.totals" class="py-2 font-mono flex">
-      <div class="flex-1">{{ key }}</div>
-      <div>{{ value }}</div>
-    </div>
+    <table class="w-full min-w-full font-mono" :class="{ 'result-table-dark': colorMode.value === 'dark', 'result-table-light': colorMode.value === 'light' }">
+      <tr v-for="(value, key) in result.totals">
+        <td class="py-2">{{ key }}</td>
+        <td class="text-right py-2">{{ value }}</td>
+      </tr>
+    </table>
     <h1 class="text-3xl font-bold leading-tight tracking-tight py-3 font-mono">Room details</h1>
     <table v-if="result.spaces" class="w-full min-w-full divide-y divide-gray-300 font-mono capitalize">
       <thead>
@@ -31,7 +33,7 @@
             </tr>
             <template v-for="value3 in value2.spaces">
               <tr class="divide-x">
-                <td>{{ value3.name.split('–')[0]  }}</td>
+                <td>{{ value3.name.split('–')[0] }}</td>
                 <td class="text-right">{{ Math.ceil(value3.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }}</td>
               </tr>
             </template>
@@ -43,6 +45,7 @@
 </template>
 
 <script lang="ts" setup>
+  const colorMode = useColorMode()
   const props = defineProps(['result'])
   const rowSpan = (spaces: Array<any>, maxLevels: number): number => {
     if (spaces) {
@@ -58,3 +61,12 @@
     }
   }
 </script>
+
+<style>
+  .result-table-dark {
+    tr:nth-child(even) { background: rgb(var(--color-gray-900)) }
+  }
+  .result-table-light {
+    tr:nth-child(even) { background: #CCC }
+  }
+</style>

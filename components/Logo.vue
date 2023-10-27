@@ -140,9 +140,7 @@
 
 <script setup lang="ts">
   const colorMode = useColorMode()
-  const color: String = computed({
-    get () {
-      return colorMode.value === 'dark' ? '#FFFFFF' : '#000000'
-    }
+  const color = computed(() => {
+    return colorMode.value === 'dark' ? '#FFFFFF' : '#000000'
   })
 </script>
