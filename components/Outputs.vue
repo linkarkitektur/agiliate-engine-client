@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold leading-tight tracking-tight py-3 font-mono">Output</h1>
-    <table class="w-full min-w-full font-mono" :class="{ 'result-table-dark': colorMode.value === 'dark', 'result-table-light': colorMode.value === 'light' }">
+    <table class="w-full min-w-full font-mono result-table">
       <tr v-for="(value, key) in result.totals">
         <td class="py-2">{{ key }}</td>
         <td class="text-right py-2">{{ value }}</td>
@@ -45,8 +45,7 @@
 </template>
 
 <script lang="ts" setup>
-  const colorMode = useColorMode()
-  const props = defineProps(['result'])
+  defineProps(['result'])
   const rowSpan = (spaces: Array<any>, maxLevels: number): number => {
     if (spaces) {
       return spaces.reduce((acc, space) => {
@@ -63,10 +62,10 @@
 </script>
 
 <style>
-  .result-table-dark {
+  .dark .result-table {
     tr:nth-child(even) { background: rgb(var(--color-gray-900)) }
   }
-  .result-table-light {
+  .result-table {
     tr:nth-child(even) { background: #CCC }
   }
 </style>
