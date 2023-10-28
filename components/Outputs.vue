@@ -74,11 +74,9 @@
     animation: glow 1.2s;
   }
   @keyframes glow {
-    0%, 100% {
-      text-shadow: none;
-    }
+    
     60% {
-      text-shadow: 0 0 1px #38a169, 0 0 5px #38a169, 0 0 10px #38a169, 0 0 15px #38a169;
+      color: #00ff00
     }
   }
 </style>
