@@ -4,8 +4,8 @@
     <main>
       <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex w-full gap-5 h-screen">
-          <Inputs @updatedInput="fetchResult" class="overflow-scroll" />
-          <Outputs :result="result" class="overflow-scroll flex-1" />
+          <Inputs @updatedInput="fetchResult" class="overflow-scroll p-1" />
+          <Outputs :result="result" :is-fetching="isFetching" class="overflow-scroll flex-1 pr-3" />
         </div>
       </div>
     </main>
@@ -14,7 +14,9 @@
 
 <script lang="ts" setup>
   const result = ref({})
+  const isFetching = ref(false)
   const fetchResult = async (input: any) => {
+    isFetching.value = true
     for (let [key, value] of Object.entries(input.variables)) {
       if (typeof value === "string") {
         input.variables[key] = Number(value)
@@ -25,6 +27,7 @@
       body: input,
       parseResponse: JSON.parse
     })
+    isFetching.value = false
     result.value = r
   }
 </script>

@@ -47,7 +47,7 @@
 </template>
 
 <script lang="ts" setup>
-  defineProps(['result'])
+  defineProps(['result', 'isFetching'])
   const rowSpan = (spaces: Array<any>, maxLevels: number): number => {
     if (spaces) {
       return spaces.reduce((acc, space) => {
