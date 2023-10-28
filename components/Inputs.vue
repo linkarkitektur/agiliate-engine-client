@@ -16,6 +16,7 @@
 
 <script lang="ts" setup>
   import debounce from 'lodash/debounce'
+
   const emit = defineEmits(['updatedInput'])
   let input = {
     variables: {
@@ -50,8 +51,12 @@
       "accessToExercise": true,
     }
   }
-  const updated = debounce(() => {
+  const updated = debounce(async () => {
+    await nextTick()
     emit("updatedInput", input)
-  }, 500)
+  }, 500, {
+    leading: true,
+    trailing: true
+  })
   emit("updatedInput", input)
 </script>
