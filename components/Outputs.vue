@@ -24,19 +24,19 @@
         <tbody class="divide-y h-72">
           <tr class="divide-x">
             <td :rowspan="rowSpan(value.spaces, 1)" class="-rotate-90 text-center whitespace-nowrap h-10">{{ value.name }}</td>
-            <td :rowspan="rowSpan(value.spaces, 1)" class="text-center"><span :key="value" class="inline-block glowanim">{{ Math.ceil(value.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }}</span></td>
+            <td :rowspan="rowSpan(value.spaces, 1)" class="text-center"><span :key="Math.ceil(value.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation)" class="inline-block glowanim">{{ Math.ceil(value.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }}</span></td>
           </tr>
           <template v-for="value2 in value.spaces">
             <tr class="divide-x">
               <td :rowspan="rowSpan(value2.spaces, 0)">{{ value2.name.split('–')[0] }}</td>
               <template v-if="!value2.spaces || value2.spaces === 0">
-                <td colspan="2" class="text-right"><span :key="value" class="inline-block glowanim">{{ Math.ceil(value2.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }}</span></td>
+                <td colspan="2" class="text-right"><span :key="Math.ceil(value2.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation)" class="inline-block glowanim">{{ Math.ceil(value2.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }}</span></td>
               </template>
             </tr>
             <template v-for="value3 in value2.spaces">
               <tr class="divide-x">
                 <td>{{ value3.name.split('–')[0] }}</td>
-                <td class="text-right"><span :key="value" class="inline-block glowanim">{{ Math.ceil(value3.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }}</span></td>
+                <td class="text-right"><span :key="Math.ceil(value3.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation)" class="inline-block glowanim">{{ Math.ceil(value3.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }}</span></td>
               </tr>
             </template>
           </template>
