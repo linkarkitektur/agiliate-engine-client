@@ -1,6 +1,6 @@
 <template>
   <ClientOnly>
-    <header class="header-background">
+    <header class="header-background dark:border-b-2 dark:border-slate-700">
       <nav class="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
           <a href="#" class="-m-1.5 p-1.5">
