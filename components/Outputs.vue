@@ -9,12 +9,11 @@
         </td>
       </tr>
     </table>
-    <h1 class="text-3xl font-bold leading-tight tracking-tight py-3 font-mono">Room details</h1>
+    <h1 class="text-3xl font-bold leading-tight tracking-tight py-3 font-mono">Room spec</h1>
     <table v-if="result.spaces" class="w-full min-w-full divide-y divide-slate-400 font-mono capitalize">
       <thead>
         <tr class="divide-x divide-slate-400">
           <th scope="col">Space</th>
-          <th scope="col">Area m²</th>
           <th scope="col">Space</th>
           <th scope="col">Space</th>
           <th scope="col">Area m²</th>
@@ -23,8 +22,7 @@
       <template v-for="value in result.spaces">
         <tbody class="divide-y h-72 divide-slate-400">
           <tr class="divide-x divide-slate-400">
-            <td :rowspan="rowSpan(value.spaces, 1)" class="-rotate-90 text-center whitespace-nowrap h-10">{{ value.name }}</td>
-            <td :rowspan="rowSpan(value.spaces, 1)" class="text-center"><span :key="Math.ceil(value.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation)" class="inline-block glowanim">{{ Math.ceil(value.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }}</span></td>
+            <td :rowspan="rowSpan(value.spaces, 1)" class="-rotate-90 text-center whitespace-nowrap h-10">{{ value.name }}<br>{{ Math.ceil(value.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }} m²</td>
           </tr>
           <template v-for="value2 in value.spaces">
             <tr class="divide-x divide-slate-400">
