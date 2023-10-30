@@ -10,6 +10,6 @@ export default defineNuxtConfig({
     strict: true,
   },
   experimental: {
-    payloadExtraction: true
+    payloadExtraction: false
   },
 })
