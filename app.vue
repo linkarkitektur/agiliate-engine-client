@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-full dark:bg-slate-900 dark:text-slate-400">
+  <div class="min-h-full dark:bg-slate-900 dark:text-slate-400 overflow-hidden">
     <Header />
     <main>
       <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -31,3 +31,9 @@
     result.value = r
   }
 </script>
+
+<style>
+  body {
+    overflow: hidden;
+  }
+</style>
