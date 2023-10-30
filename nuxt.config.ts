@@ -9,4 +9,7 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+  experimental: {
+    payloadExtraction: true
+  },
 })
