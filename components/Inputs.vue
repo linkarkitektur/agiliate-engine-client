@@ -4,7 +4,7 @@
     <div v-for="(value, key) in input.variables" class="py-2 font-mono">
       <div v-if="typeof value === 'number'">
         <span>{{ key }}</span>
-        <UInput v-model="input.variables[key]" @input="updated" type="number"/>
+        <UInput v-model="input.variables[key]" @input="updated" type="number" min="0" :max="max(key)" :step="step(key)" />
       </div>
       <div v-else-if="typeof value === 'boolean'" class="flex items-center">
         <UCheckbox v-model="input.variables[key]" @change="updated" class="mr-2" />
@@ -59,4 +59,10 @@
     trailing: true
   })
   emit("updatedInput", input)
+  const max = (name: string) => {
+    return name.includes('Share') ? 1 : Infinity
+  }
+  const step = (name: string) => {
+    return name.includes('Share') ? 0.05 : 'any'
+  }
 </script>
