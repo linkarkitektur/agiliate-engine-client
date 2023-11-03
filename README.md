@@ -1,10 +1,14 @@
 # Minimal client for Agiliate Engine
+This is a minimal client for [Agiliate Engine](https://github.com/linkarkitektur/agiliate-engine).
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
+# bun
+bun install
+
 # npm
 npm install
 
@@ -13,9 +17,6 @@ pnpm install
 
 # yarn
 yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
@@ -23,6 +24,9 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
+# bun
+bun run dev
+
 # npm
 npm run dev
 
@@ -31,9 +35,6 @@ pnpm run dev
 
 # yarn
 yarn dev
-
-# bun
-bun run dev
 ```
 
 ## Production
@@ -41,6 +42,9 @@ bun run dev
 Build the application for production:
 
 ```bash
+# bun
+bun run build
+
 # npm
 npm run build
 
@@ -49,14 +53,14 @@ pnpm run build
 
 # yarn
 yarn build
-
-# bun
-bun run build
 ```
 
 Locally preview production build:
 
 ```bash
+# bun
+bun run preview
+
 # npm
 npm run preview
 
@@ -65,9 +69,6 @@ pnpm run preview
 
 # yarn
 yarn preview
-
-# bun
-bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
