@@ -58,10 +58,10 @@
     trailing: true
   })
   emit("updatedInput", input)
-  const max = (name: string) => {
+  const max = (name: string): number => {
     return name.includes('Share') ? 1 : Infinity
   }
-  const step = (name: string) => {
+  const step = (name: string): string|number => {
     return name.includes('Share') ? 0.05 : 'any'
   }
 </script>
