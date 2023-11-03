@@ -11,7 +11,7 @@
         <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center">
           <ColorModeButton />
           <div class="flex p-2.5">
-            <a href="https://github.com/nodalit/agiliate-engine-client">
+            <a href="https://github.com/linkarkitektur/agiliate-engine-client">
               <img :src="githublogo" class="h-6" alt="Github logo" />
             </a>
           </div>
