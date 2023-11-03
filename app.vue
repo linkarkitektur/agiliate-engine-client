@@ -25,7 +25,10 @@
     const r = await $fetch("https://agiliate.nodalit.com/engine/calculate", {
       method: "POST",
       body: input,
-      parseResponse: JSON.parse
+      parseResponse: JSON.parse,
+      headers: {
+        "Content-Type": "text/plain"
+      }
     })
     isFetching.value = false
     result.value = r
