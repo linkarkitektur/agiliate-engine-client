@@ -3,11 +3,11 @@
     <h1 class="text-3xl font-bold leading-tight tracking-tight py-3 font-mono">Input</h1>
     <div v-for="(value, key) in input.variables" class="py-2 font-mono">
       <div v-if="typeof value === 'number'">
-        <span>{{ key }}</span>
+        <span class="capitalize">{{ formatKey(key) }}</span>
         <UInput v-model="(input.variables[key] as number)" @input="updated" type="number" min="0" :max="max(key)" :step="step(key)" />
       </div>
-      <div v-else-if="typeof value === 'boolean'" class="flex items-center">
-        <UCheckbox v-model="(input.variables[key] as boolean)" @change="updated" class="mr-2" :label="key" />
+      <div v-else-if="typeof value === 'boolean'" class="flex items-center capitalize">
+        <UCheckbox v-model="(input.variables[key] as boolean)" @change="updated" class="mr-2" :label="formatKey(key)" />
       </div>
     </div>
   </div>
@@ -19,11 +19,8 @@
   const emit = defineEmits(['updatedInput'])
   let input = {
     variables: {
-      "specialAreaOffice": 80,
-      "specialAreaShared": 0,
-      "specialAreaCommon": 100,
-      "seatsInAuditorium": 50,
       "numberOfEmployees": 330,
+      "seatsInAuditorium": 50,
       "concurrencyAttendanceShare": 1.0,
       "peakConcurrencyAttendanceShare": 1.0,
       "overCapacityShare": 0.0,
@@ -41,6 +38,9 @@
       "smallMeetingroomShare": 0.3017,
       "mediumMeetingroomShare": 0.3600,
       "largeMeetingroomShare": 0.1277,
+      "specialAreaOffice": 80,
+      "specialAreaShared": 0,
+      "specialAreaCommon": 100,
       "accessToCoworking": false,
       "accessToCanteen": true,
       "accessToCourseSpace": true,
@@ -63,5 +63,8 @@
   }
   const step = (name: string): string|number => {
     return name.includes('Share') ? 0.05 : 'any'
+  }
+  const formatKey = (key: string): string => {
+    return key.split(/(?=[A-Z])/).join(' ')
   }
 </script>

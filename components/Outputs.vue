@@ -3,7 +3,7 @@
     <h1 class="text-3xl font-bold leading-tight tracking-tight py-3 font-mono">Output</h1>
     <table class="w-full min-w-full font-mono result-table">
       <tr v-for="(value, key) in result.totals">
-        <td class="py-2">{{ key }}</td>
+        <td class="py-2 capitalize">{{ formatKey(key.toString()) }}</td>
         <td class="text-right py-2">
           <span :key="value" class="inline-block glowanim">{{ value }}</span>
         </td>
@@ -59,6 +59,9 @@
       return 1
     }
   }
+  const formatKey = (key: string): string => {
+    return key.split(/(?=[A-Z])/).join(' ')
+  }
 </script>
 
 <style>
@@ -72,7 +75,6 @@
     animation: glow 1.2s;
   }
   @keyframes glow {
-    
     60% {
       color: #00ff00
     }
