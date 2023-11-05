@@ -5,7 +5,7 @@
       <tr v-for="(value, key) in result.totals">
         <td class="py-2 capitalize">{{ formatKey(key.toString()) }}</td>
         <td class="text-right py-2">
-          <span :key="value" class="inline-block glowanim">{{ value }}</span>
+          <span :key="value" class="inline-block glowanim">{{ value.toLocaleString() }}</span>
         </td>
       </tr>
     </table>
