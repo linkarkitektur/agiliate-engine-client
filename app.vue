@@ -2,7 +2,7 @@
   <div class="min-h-full dark:bg-slate-900 dark:text-slate-400 overflow-hidden">
     <Header />
     <main>
-      <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
         <div class="flex w-full gap-5 h-screen">
           <Inputs @updatedInput="fetchResult" class="overflow-scroll pl-1 pr-1" />
           <Outputs :result="result" :is-fetching="isFetching" class="overflow-scroll flex-1 pr-3" />
