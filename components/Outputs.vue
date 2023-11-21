@@ -17,6 +17,8 @@
           <th scope="col">Space</th>
           <th scope="col">Space</th>
           <th scope="col">Area m²</th>
+          <th scope="col"># Rooms</th>
+          <th scope="col"># Seats</th>
         </tr>
       </thead>
       <template v-for="value in result.spaces">
@@ -34,7 +36,9 @@
             <template v-for="value3 in value2.spaces">
               <tr class="divide-x divide-slate-400">
                 <td>{{ value3.name.split('–')[0] }}</td>
-                <td class="text-right"><span :key="Math.ceil(value3.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation)" class="inline-block glowanim">{{ Math.ceil(value3.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }}</span></td>
+                <td class="text-right pr-1"><span :key="Math.ceil(value3.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation)" class="inline-block glowanim">{{ Math.ceil(value3.result.adjustedAreaInclCompensationWithAdjustmentAndCompensation) }}</span></td>
+                <td class="text-right pr-1"><span v-if="value3.result.numberOfRooms !== 0" :key="value3.result.numberOfRooms" class="inline-block glowanim">{{ value3.result.numberOfRooms }}</span></td>
+                <td class="text-right"><span v-if="value3.result.numberOfSeats !== 0" :key="value3.result.numberOfSeats" class="inline-block glowanim">{{ value3.result.numberOfSeats }}</span></td>
               </tr>
             </template>
           </template>
@@ -74,9 +78,8 @@
   const ism2 = (key: string): string => {
     if (m2s.includes(key)) {
       return ' m²'
-    } else {
-      return ''
     }
+    return ''
   }
 </script>
 
