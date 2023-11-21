@@ -5,7 +5,7 @@
       <tr v-for="(value, key) in result.totals">
         <td class="py-2 capitalize">{{ formatKey(key.toString()) }}</td>
         <td class="text-right py-2">
-          <span :key="value" class="inline-block glowanim">{{ value.toLocaleString() }}</span>
+          <span :key="value" class="inline-block glowanim">{{ value.toLocaleString() + ism2(key.toString()) }}</span>
         </td>
       </tr>
     </table>
@@ -61,6 +61,22 @@
   }
   const formatKey = (key: string): string => {
     return key.split(/(?=[A-Z])/).join(' ')
+  }
+  const m2s = [
+    'adjustedAreaInclCompensationWithAdjustmentAndCompensation',
+    'compensationArea',
+    'grossArea',
+    'netArea',
+    'unadjustedArea',
+    'utilityFloorSpace',
+    'workplaceArea'
+  ]
+  const ism2 = (key: string): string => {
+    if (m2s.includes(key)) {
+      return ' m²'
+    } else {
+      return ''
+    }
   }
 </script>
 
