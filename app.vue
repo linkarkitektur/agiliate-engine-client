@@ -3,7 +3,7 @@
     <Header />
     <main>
       <div class="mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
-        <div class="flex w-full gap-5 h-screen">
+        <div class="flex w-full gap-5 h-screen pb-16">
           <Inputs @updatedInput="fetchResult" class="overflow-scroll pl-1 pr-1" />
           <Outputs :result="result" :is-fetching="isFetching" class="overflow-scroll flex-1 pr-3" />
         </div>
