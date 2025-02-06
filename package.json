@@ -12,14 +12,15 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/lodash": "^4.14.200",
-    "gh-pages": "^6.0.0",
-    "nuxt": "^3.8.0",
-    "vue": "^3.3.7",
-    "vue-router": "^4.2.5"
+    "@types/lodash": "^4.17.15",
+    "gh-pages": "^6.3.0",
+    "nuxt": "^3.15.3",
+    "nuxt-lodash": "^2.5.3",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "dependencies": {
-    "@nuxt/ui": "^2.9.0",
+    "@nuxt/ui": "^2.21.0",
     "lodash": "^4.17.21"
   }
 }

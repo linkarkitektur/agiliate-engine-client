@@ -1,15 +1,6 @@
 <template>
   <div>
-    <h1 class="text-3xl font-bold leading-tight tracking-tight py-3 font-mono">Output</h1>
-    <table class="w-full min-w-full font-mono result-table">
-      <tr v-for="(value, key) in result.totals">
-        <td class="py-2 capitalize">{{ formatKey(key.toString()) }}</td>
-        <td class="text-right py-2">
-          <span :key="value" class="inline-block glowanim">{{ value.toLocaleString() + ism2(key.toString()) }}</span>
-        </td>
-      </tr>
-    </table>
-    <h1 class="text-3xl font-bold leading-tight tracking-tight py-3 font-mono">Room spec</h1>
+    <h1 class="text-3xl font-bold leading-tight tracking-tight py-3 font-mono">Room Specifications</h1>
     <table v-if="result.spaces" class="w-full min-w-full divide-y divide-slate-400 font-mono capitalize">
       <thead>
         <tr class="divide-x divide-slate-400">
@@ -45,6 +36,15 @@
         </tbody>
       </template>
     </table>
+    <h1 class="text-3xl font-bold leading-tight tracking-tight py-3 font-mono">Output Totals</h1>
+    <table class="w-full min-w-full font-mono result-table">
+      <tr v-for="(value, key) in result.totals">
+        <td class="py-2 capitalize">{{ formatKey(key.toString()) }}</td>
+        <td class="text-right py-2">
+          <span :key="value" class="inline-block glowanim">{{ value.toLocaleString() + ism2(key.toString()) }}</span>
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -55,13 +55,11 @@
       return spaces.reduce((acc, space) => {
         if (space.spaces && space.spaces.length > 0 && maxLevels > 0) {
           return acc + rowSpan(space.spaces, maxLevels - 1)
-        } else {
-          return acc + 1
         }
+        return acc + 1
       }, 1)
-    } else {
-      return 1
     }
+    return 1
   }
   const formatKey = (key: string): string => {
     return key.split(/(?=[A-Z])/).join(' ')
@@ -73,7 +71,12 @@
     'netArea',
     'unadjustedArea',
     'utilityFloorSpace',
-    'workplaceArea'
+    'workplaceArea',
+    'unadjustedAddonArea',
+    'netAreaPerEmployee',
+    'grossAreaPerEmployee',
+    'utilityFloorSpacePerEmployee',
+    'grossAreaPerDimensionedAttendance'
   ]
   const ism2 = (key: string): string => {
     if (m2s.includes(key)) {

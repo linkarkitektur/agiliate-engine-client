@@ -17,12 +17,13 @@
   const isFetching = ref(false)
   const fetchResult = async (input: any) => {
     isFetching.value = true
-    for (let [key, value] of Object.entries(input.variables)) {
+    for (const [key, value] of Object.entries(input.variables)) {
       if (typeof value === "string") {
         input.variables[key] = Number(value)
       }
     }
-    const r = await $fetch("https://app.agiliate.ai/engine/calculate", {
+    // const r = await $fetch("https://app.agiliate.ai/engine/calculate", {
+    const r = await $fetch("http://localhost:1337/calculate", {
       method: "POST",
       body: input,
       parseResponse: JSON.parse,
