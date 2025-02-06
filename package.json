@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@nuxt/ui": "^2.21.0",
+    "caniuse-lite": "^1.0.30001697",
     "lodash": "^4.17.21"
   }
 }
